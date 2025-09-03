@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuisbatterij Calculator</title>
+</head>
+<body>
+
+    <h1>Thuisbatterij Capaciteit Berekenen</h1>
+    <p>Vul hieronder uw geschatte dagelijkse waarden in.</p>
+
+    <form method="POST">
+        <label for="huisverbruik">Geschat dagelijks verbruik van uw huis (kWh):</label><br>
+        <input type="number" id="huisverbruik" name="huisverbruik" value="10" required><br><br>
+
+        <label for="autoverbruik">Geschat dagelijks verbruik van uw elektrische auto (kWh):</label><br>
+        <input type="number" id="autoverbruik" name="autoverbruik" value="15" required><br><br>
+
+        <label for="zonnepanelen">Geschatte dagelijkse opbrengst van uw zonnepanelen (kWh):</label><br>
+        <input type="number" id="zonnepanelen" name="zonnepanelen" value="20" required><br><br>
+        
+        <button type="submit">Bereken mijn batterijcapaciteit</button>
+    </form>
+    
+    {% if resultaat %}
+    <hr>
+    <h2>Aanbevolen batterijcapaciteit</h2>
+    <p>De aanbevolen capaciteit voor uw situatie is: <strong>{{ resultaat }}</strong></p>
+    {% endif %}
+
+    {% if foutmelding %}
+    <hr>
+    <p style="color:red;">{{ foutmelding }}</p>
+    {% endif %}
+
+</body>
+</html>
